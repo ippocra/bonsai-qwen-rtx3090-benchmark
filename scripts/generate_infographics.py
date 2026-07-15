@@ -110,9 +110,9 @@ def draw_overview(rows: list[dict[str, str]], out_dir: Path) -> None:
     ax3.add_patch(Rectangle((0.06, 0.56), 0.88, 0.18, color=BONSAI, alpha=0.95, transform=ax3.transAxes))
     ax3.add_patch(Rectangle((0.06, 0.29), 0.88, 0.18, color=QWEN, alpha=0.95, transform=ax3.transAxes))
     ax3.text(0.08, 0.79, 'Operational call', color=INK, fontsize=15, fontweight='bold', transform=ax3.transAxes)
-    ax3.text(0.09, 0.61, 'Bonsai: full context with headroom', color=BG, fontsize=12, fontweight='bold', transform=ax3.transAxes)
-    ax3.text(0.09, 0.34, 'Qwen: full context only near ceiling', color=BG, fontsize=12, fontweight='bold', transform=ax3.transAxes)
-    ax3.text(0.08, 0.12, 'Recommended Qwen mode: ctx=262144, ngl=999, q4_0/q4_0 KV.\nAvoid q8/f16 KV for long-context Qwen on 24GB.', color=MUTED, fontsize=10.5, transform=ax3.transAxes)
+    ax3.text(0.09, 0.64, 'Bonsai: full context\nwith headroom', color=BG, fontsize=10.5, fontweight='bold', transform=ax3.transAxes, va='center')
+    ax3.text(0.09, 0.37, 'Qwen: full context\nnear the ceiling', color=BG, fontsize=10.5, fontweight='bold', transform=ax3.transAxes, va='center')
+    ax3.text(0.08, 0.10, 'Qwen mode: ctx=262144, ngl=999, q4_0/q4_0 KV.\nAvoid q8/f16 KV for long-context Qwen on 24GB.', color=MUTED, fontsize=9.5, transform=ax3.transAxes)
     save(fig, out_dir / 'benchmark-overview.png')
 
 
@@ -144,7 +144,8 @@ def draw_oom(rows: list[dict[str, str]], out_dir: Path) -> None:
 
 def draw_quality(rows: list[dict[str, str]], out_dir: Path) -> None:
     summary = quality_summary(rows)
-    fig, axes = plt.subplots(1, 2, figsize=(14, 6.8), facecolor=BG)
+    fig, axes = plt.subplots(1, 2, figsize=(15, 7.4), facecolor=BG)
+    fig.subplots_adjust(left=0.07, right=0.98, bottom=0.10, top=0.76, wspace=0.20)
     for ax in axes:
         style_ax(ax)
     labels = []
@@ -167,8 +168,8 @@ def draw_quality(rows: list[dict[str, str]], out_dir: Path) -> None:
     axes[1].set_ylabel('tok/s', color=MUTED)
     for i, value in enumerate(gens):
         axes[1].text(i, value + 1, f'{value:.1f}', ha='center', color=INK, fontsize=10, fontweight='bold')
-    fig.text(0.03, 0.96, 'QUALITY AND SPEED AT PRACTICAL SETTINGS', color=INK, fontsize=22, fontweight='bold')
-    fig.text(0.03, 0.91, 'q4_0/q4_0 KV, ngl=999. Failures are mostly long reasoning traces consuming the answer budget.', color=MUTED, fontsize=12)
+    fig.text(0.03, 0.94, 'QUALITY AND SPEED AT PRACTICAL SETTINGS', color=INK, fontsize=21, fontweight='bold')
+    fig.text(0.03, 0.88, 'q4_0/q4_0 KV, ngl=999. Failures mostly reflect long reasoning traces consuming the answer budget.', color=MUTED, fontsize=11.5)
     save(fig, out_dir / 'quality-speed-score.png')
 
 
