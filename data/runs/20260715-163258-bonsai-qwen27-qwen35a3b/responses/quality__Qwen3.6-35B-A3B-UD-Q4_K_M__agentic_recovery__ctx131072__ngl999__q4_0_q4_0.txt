@@ -1,0 +1,14 @@
+
+
+<think>
+
+</think>
+
+{
+  "tool": "bash",
+  "arguments": {
+    "command": "ls -la /tmp/ | head -20"
+  }
+} [end of text]
+
+

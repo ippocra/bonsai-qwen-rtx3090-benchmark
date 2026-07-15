@@ -1,0 +1,15 @@
+
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Output Format:** Only valid JSON
+   - **Keys Required:** `name`, `version`, `description`
+   - **Subject:** Python
+   - **Constraint:** No markdown
+
+2.  **Identify Key Information Needed:**
+   - `name`: Python
+   - `version`: Need a current/stable version. As of 2024, Python 3.12 is the latest stable release. I'll use "3.12" or "3.12.0
+

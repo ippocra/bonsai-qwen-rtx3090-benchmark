@@ -1,0 +1,1 @@
+You are Hermes. The user asks what we decided about the router stop order in the last session. Use session_search before answering if needed. Output only the next tool call in compact JSON with keys tool and arguments. Do not explain.

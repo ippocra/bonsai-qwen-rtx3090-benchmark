@@ -45,16 +45,21 @@ def main() -> int:
     for row in rows:
         if row['phase'] == 'boundary':
             lines.append(f"| {row['model']} | {row['ctx']} | {row['ngl']} | {row['cache_k']}/{row['cache_v']} | {row['status']} | {row['peak_vram_mb']} |")
-    lines += ['', '## Quality/probe summary', '', '| model | ctx | score | avg prompt tok/s | avg gen tok/s | avg peak VRAM MB |', '|---|---:|---:|---:|---:|---:|']
+    lines += ['', '## Quality/probe summary', '', '| model | ctx | score | avg prompt tok/s | avg gen tok/s | avg peak VRAM MB | statuses |', '|---|---:|---:|---:|---:|---:|---|']
     for model in sorted({row['model'] for row in rows}):
         contexts = sorted({int(row['ctx']) for row in rows if row['phase'] == 'quality' and row['model'] == model})
         for ctx in contexts:
             subset = [row for row in rows if row['phase'] == 'quality' and row['model'] == model and int(row['ctx']) == ctx]
             score = sum(int(row['score']) for row in subset if row['score'] not in ('', 'None'))
-            prompt = statistics.mean(fnum(row['prompt_tok_s']) for row in subset if fnum(row['prompt_tok_s']) is not None)
-            gen = statistics.mean(fnum(row['gen_tok_s']) for row in subset if fnum(row['gen_tok_s']) is not None)
-            peak = statistics.mean(fnum(row['peak_vram_mb']) for row in subset if fnum(row['peak_vram_mb']) is not None)
-            lines.append(f'| {model} | {ctx} | {score}/{len(subset)} | {prompt:.2f} | {gen:.2f} | {peak:.0f} |')
+            prompt_vals = [fnum(row['prompt_tok_s']) for row in subset if fnum(row['prompt_tok_s']) is not None]
+            gen_vals = [fnum(row['gen_tok_s']) for row in subset if fnum(row['gen_tok_s']) is not None]
+            peak_vals = [fnum(row['peak_vram_mb']) for row in subset if fnum(row['peak_vram_mb']) is not None]
+            prompt = f'{statistics.mean(prompt_vals):.2f}' if prompt_vals else '-'
+            gen = f'{statistics.mean(gen_vals):.2f}' if gen_vals else '-'
+            peak = f'{statistics.mean(peak_vals):.0f}' if peak_vals else '-'
+            status_counts = collections.Counter(row['status'] for row in subset)
+            status_note = ', '.join(f'{k}:{v}' for k, v in sorted(status_counts.items()))
+            lines.append(f'| {model} | {ctx} | {score}/{len(subset)} | {prompt} | {gen} | {peak} | {status_note} |')
     out = Path(args.out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text('\n'.join(lines) + '\n', encoding='utf-8')

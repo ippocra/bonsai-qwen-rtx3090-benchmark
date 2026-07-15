@@ -1,0 +1,13 @@
+
+
+<think>
+The user wants to know about a decision made in a previous session regarding a "router stop order".
+I need to check the conversation history or session data to find this information.
+The prompt explicitly instructs to use `session_search` before answering if needed.
+Since I don't have the context of the "last session" in the current prompt, I must use the tool.
+The output format must be a compact JSON with keys `tool` and `arguments`.
+No explanation should be provided.
+
+Tool: `session_search`
+Arguments: I need to search for keywords related to the query. "
+

@@ -1,0 +1,61 @@
+COMMAND: /home/fido/work/PrismML-llama.cpp/build/bin/llama-completion -m /home/fido/models/qwen3.6-35b-a3b-gguf/Qwen3.6-35B-A3B-UD-Q4_K_M.gguf -c 131072 -n 256 -ngl 999 -fit off -fa on --perf --simple-io --skip-chat-parsing --reasoning off -no-cnv --no-display-prompt --no-warmup -ctk q4_0 -ctv q4_0 -b 512 -ub 128 -t 12 --temp 0 --top-p 1 --seed 42 -f data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/prompts/quality__coding.txt
+START_VRAM_MB: 1280
+
+
+<think>
+
+</think>
+
+```python
+def two_sum(nums: list[int], target: int) -> tuple[int, int]:
+    """
+    Find two numbers in the list that add up to the target value.
+    
+    Args:
+        nums: A list of integers.
+        target: The target sum.
+        
+    Returns:
+        A tuple containing the two numbers that add up to the target.
+        
+    Raises:
+        ValueError: If no pair of numbers adds up to the target.
+    """
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return (complement, num)
+        seen[num] = i
+    raise ValueError("No two numbers add up to the target")
+``` [end of text]
+
+
+0.00.018.336 I llama_completion: llama backend init
+0.00.018.356 I llama_completion: load the model and apply lora adapter, if any
+0.03.141.547 W llama_context: n_ctx_seq (131072) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+0.03.176.677 I llama_completion: llama threadpool init, n_threads = 12
+0.03.177.694 I 
+0.03.177.744 I system_info: n_threads = 12 (n_threads_batch = 12) / 12 | CUDA : ARCHS = 860 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.03.177.745 I 
+0.03.177.925 I sampler seed: 42
+0.03.177.931 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 20, top_p = 1.000, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.03.177.935 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> ?top-p -> min-p -> ?xtc -> temp-ext -> dist 
+0.03.177.936 I generate: n_ctx = 131072, n_batch = 512, n_predict = 256, n_keep = 0
+0.03.177.936 I 
+0.04.506.706 I common_perf_print:    sampling time =      81.07 ms
+0.04.506.709 I common_perf_print:    samplers time =      34.34 ms /   214 tokens
+0.04.506.713 I common_perf_print:        load time =      84.40 ms
+0.04.506.715 I common_perf_print: prompt eval time =      83.11 ms /    42 tokens (    1.98 ms per token,   505.38 tokens per second)
+0.04.506.719 I common_perf_print:        eval time =    1162.41 ms /   171 runs   (    6.80 ms per token,   147.11 tokens per second)
+0.04.506.721 I common_perf_print:       total time =    1330.04 ms /   213 tokens
+0.04.506.723 I common_perf_print: unaccounted time =       3.44 ms /   0.3 %      (total - sampling - prompt eval - eval) / (total)
+0.04.506.724 I common_perf_print:    graphs reused =        170
+
+END_VRAM_MB: 1280
+RETURN_CODE: 0
+TIMED_OUT: False

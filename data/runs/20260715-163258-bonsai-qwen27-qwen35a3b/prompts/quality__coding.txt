@@ -1,0 +1,1 @@
+Write a Python function two_sum(nums: list[int], target: int) -> tuple[int, int] that returns the two numbers adding to target. Include a docstring and raise ValueError if no pair exists.

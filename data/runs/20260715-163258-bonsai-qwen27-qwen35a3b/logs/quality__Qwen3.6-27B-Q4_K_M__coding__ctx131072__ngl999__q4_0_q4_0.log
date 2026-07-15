@@ -1,0 +1,48 @@
+COMMAND: /home/fido/work/PrismML-llama.cpp/build/bin/llama-completion -m /home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf -c 131072 -n 256 -ngl 999 -fit off -fa on --perf --simple-io --skip-chat-parsing --reasoning off -no-cnv --no-display-prompt --no-warmup -ctk q4_0 -ctv q4_0 -b 512 -ub 128 -t 12 --temp 0 --top-p 1 --seed 42 -f data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/prompts/quality__coding.txt
+START_VRAM_MB: 1280
+
+
+<think>
+Here's a thinking process:
+
+1.  **Understand the User Request:**
+   - **Function Name:** `two_sum`
+   - **Parameters:** `nums: list[int]`, `target: int`
+   - **Return Type:** `tuple[int, int]` (the two numbers that add up to `target`)
+   - **Requirements:**
+     - Include a docstring
+     - Raise `ValueError` if no pair exists
+   - **Implicit Requirements:** Standard Two Sum problem behavior. Usually, it returns indices, but the prompt says "returns the two numbers adding to target". I need to be careful here. The prompt explicitly says "returns the two numbers", not indices. I'll stick to returning the actual values. If they meant indices, they would typically say "indices". I'll return the values as requested. I should also consider if order matters. Usually, it doesn't, but I'll return them in the order they appear or just as a tuple. I'll make sure the docstring clarifies this.
+
+2.  **Algorithm Design:**
+   - Need to find two numbers in `nums` that sum to `target`.
+   - Efficient approach: Use a hash
+
+0.00.021.350 I llama_completion: llama backend init
+0.00.021.355 I llama_completion: load the model and apply lora adapter, if any
+0.02.175.389 W llama_context: n_ctx_seq (131072) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+0.02.438.117 I llama_completion: llama threadpool init, n_threads = 12
+0.02.439.071 I 
+0.02.439.120 I system_info: n_threads = 12 (n_threads_batch = 12) / 12 | CUDA : ARCHS = 860 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.02.439.121 I 
+0.02.439.291 I sampler seed: 42
+0.02.439.297 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 20, top_p = 1.000, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.02.439.301 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> ?top-p -> min-p -> ?xtc -> temp-ext -> dist 
+0.02.439.302 I generate: n_ctx = 131072, n_batch = 512, n_predict = 256, n_keep = 0
+0.02.439.302 I 
+0.09.093.990 I common_perf_print:    sampling time =     127.87 ms
+0.09.093.991 I common_perf_print:    samplers time =      54.23 ms /   298 tokens
+0.09.093.993 I common_perf_print:        load time =     146.16 ms
+0.09.093.994 I common_perf_print: prompt eval time =     144.95 ms /    42 tokens (    3.45 ms per token,   289.76 tokens per second)
+0.09.093.996 I common_perf_print:        eval time =    6378.69 ms /   255 runs   (   25.01 ms per token,    39.98 tokens per second)
+0.09.093.996 I common_perf_print:       total time =    6655.88 ms /   297 tokens
+0.09.093.997 I common_perf_print: unaccounted time =       4.36 ms /   0.1 %      (total - sampling - prompt eval - eval) / (total)
+0.09.093.997 I common_perf_print:    graphs reused =        253
+
+END_VRAM_MB: 1280
+RETURN_CODE: 0
+TIMED_OUT: False

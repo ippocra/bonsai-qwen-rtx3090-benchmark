@@ -1,0 +1,16 @@
+
+
+<think>
+The user wants to inspect a file before editing it.
+The target file is `/tmp/demo.py`.
+The user request is: "Replace the current placeholder with a function that returns 4."
+I need to read the file first to see its contents.
+The appropriate tool is `read_file`.
+I will output a JSON object with `tool` and `arguments`.
+Arguments should be `{"path": "/tmp/demo.py"}`.
+No explanation needed.
+Output only the JSON.
+Check format: compact JSON object with keys `tool` and `arguments`.
+Done. 
+Proceed.
+

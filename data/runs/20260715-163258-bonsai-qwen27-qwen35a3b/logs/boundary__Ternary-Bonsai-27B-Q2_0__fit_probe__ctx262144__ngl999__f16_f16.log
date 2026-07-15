@@ -1,0 +1,14 @@
+COMMAND: /home/fido/work/PrismML-llama.cpp/build/bin/llama-completion -m /home/fido/models/ternary-bonsai-27b/Ternary-Bonsai-27B-Q2_0.gguf -c 262144 -n 1 -ngl 999 -fit off -fa on --perf --simple-io --skip-chat-parsing --reasoning off -no-cnv --no-display-prompt --no-warmup -ctk f16 -ctv f16 -b 512 -ub 128 -t 12 --temp 0 --top-p 1 --seed 42 -f data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/prompts/boundary__fit_probe.txt
+START_VRAM_MB: 1280
+0.00.020.934 I llama_completion: llama backend init
+0.00.020.943 I llama_completion: load the model and apply lora adapter, if any
+0.01.433.257 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 16384.00 MiB on device 0: cudaMalloc failed: out of memory
+0.01.433.261 E alloc_tensor_range: failed to allocate CUDA0 buffer of size 17179869184
+0.01.433.778 E llama_init_from_model: failed to initialize the context: failed to allocate buffer for kv cache
+0.01.433.799 E common_init_result: failed to create context with model '/home/fido/models/ternary-bonsai-27b/Ternary-Bonsai-27B-Q2_0.gguf'
+0.01.433.801 E common_init_from_params: failed to create context with model '/home/fido/models/ternary-bonsai-27b/Ternary-Bonsai-27B-Q2_0.gguf'
+0.01.433.803 E llama_completion: error: unable to create context
+
+END_VRAM_MB: 1280
+RETURN_CODE: 1
+TIMED_OUT: False

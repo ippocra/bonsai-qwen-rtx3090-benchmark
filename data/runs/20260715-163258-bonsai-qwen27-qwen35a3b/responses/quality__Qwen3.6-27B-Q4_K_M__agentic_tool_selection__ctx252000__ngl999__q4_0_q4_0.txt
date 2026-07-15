@@ -1,0 +1,16 @@
+
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - User wants to inspect a file before editing it.
+   - Target file: `/tmp/demo.py`
+   - User request: "Replace the current placeholder with a function that returns 4."
+   - I don't know the file contents yet.
+   - I need to output *only* the single next tool call in a compact JSON object with keys `tool` and `arguments`.
+   - I must choose the most appropriate next tool.
+   - No explanations.
+
+2.  **Identify
+

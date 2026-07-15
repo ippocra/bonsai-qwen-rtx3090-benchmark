@@ -1,0 +1,31 @@
+
+
+<think>
+
+</think>
+
+```python
+def two_sum(nums: list[int], target: int) -> tuple[int, int]:
+    """
+    Find two numbers in the list that add up to the target value.
+    
+    Args:
+        nums: A list of integers.
+        target: The target sum.
+        
+    Returns:
+        A tuple containing the two numbers that add up to the target.
+        
+    Raises:
+        ValueError: If no pair of numbers adds up to the target.
+    """
+    seen = {}
+    for i, num in enumerate(nums):
+        complement = target - num
+        if complement in seen:
+            return (complement, num)
+        seen[num] = i
+    raise ValueError("No two numbers add up to the target")
+``` [end of text]
+
+

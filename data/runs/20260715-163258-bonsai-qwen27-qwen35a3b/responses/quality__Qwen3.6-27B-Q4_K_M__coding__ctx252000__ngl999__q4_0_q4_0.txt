@@ -1,0 +1,18 @@
+
+
+<think>
+Here's a thinking process:
+
+1.  **Understand the User Request:**
+   - **Function Name:** `two_sum`
+   - **Parameters:** `nums: list[int]`, `target: int`
+   - **Return Type:** `tuple[int, int]` (the two numbers that add up to `target`)
+   - **Requirements:**
+     - Include a docstring
+     - Raise `ValueError` if no pair exists
+   - **Implicit Requirements:** Standard Two Sum problem behavior. Usually, it returns indices, but the prompt says "returns the two numbers adding to target". I need to be careful here. The prompt explicitly says "returns the two numbers", not indices. I'll stick to returning the actual values. If they meant indices, they would typically say "indices". I'll return the values as requested. I should also consider if order matters. Usually, it doesn't, but I'll return them in the order they appear or just as a tuple. I'll make sure the docstring clarifies this.
+
+2.  **Algorithm Design:**
+   - Need to find two numbers in `nums` that sum to `target`.
+   - Efficient approach: Use a hash
+

@@ -1,0 +1,39 @@
+COMMAND: /home/fido/work/PrismML-llama.cpp/build/bin/llama-completion -m /home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf -c 131072 -n 32 -ngl 999 -fit off -fa on --perf --simple-io --skip-chat-parsing --reasoning off -no-cnv --no-display-prompt --no-warmup -ctk q4_0 -ctv q4_0 -b 512 -ub 128 -t 12 --temp 0 --top-p 1 --seed 42 -f data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/prompts/quality__agentic_no_tool.txt
+START_VRAM_MB: 1280
+
+
+<think>
+
+</think>
+
+56 [end of text]
+
+
+0.00.018.496 I llama_completion: llama backend init
+0.00.018.502 I llama_completion: load the model and apply lora adapter, if any
+0.02.173.215 W llama_context: n_ctx_seq (131072) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+0.02.437.077 I llama_completion: llama threadpool init, n_threads = 12
+0.02.437.999 I 
+0.02.438.043 I system_info: n_threads = 12 (n_threads_batch = 12) / 12 | CUDA : ARCHS = 860 | USE_GRAPHS = 1 | PEER_MAX_BATCH_SIZE = 128 | CPU : SSE3 = 1 | SSSE3 = 1 | AVX = 1 | AVX2 = 1 | F16C = 1 | FMA = 1 | BMI2 = 1 | LLAMAFILE = 1 | OPENMP = 1 | REPACK = 1 | 
+0.02.438.044 I 
+0.02.438.147 I sampler seed: 42
+0.02.438.153 I sampler params: 
+	repeat_last_n = 64, repeat_penalty = 1.000, frequency_penalty = 0.000, presence_penalty = 0.000
+	dry_multiplier = 0.000, dry_base = 1.750, dry_allowed_length = 2, dry_penalty_last_n = -1
+	top_k = 20, top_p = 1.000, min_p = 0.050, xtc_probability = 0.000, xtc_threshold = 0.100, typical_p = 1.000, top_n_sigma = -1.000, temp = 0.000
+	mirostat = 0, mirostat_lr = 0.100, mirostat_ent = 5.000, adaptive_target = -1.000, adaptive_decay = 0.900
+0.02.438.157 I sampler chain: logits -> ?penalties -> ?dry -> ?top-n-sigma -> top-k -> ?typical -> ?top-p -> min-p -> ?xtc -> temp-ext -> dist 
+0.02.438.158 I generate: n_ctx = 131072, n_batch = 512, n_predict = 32, n_keep = 0
+0.02.438.158 I 
+0.02.815.448 I common_perf_print:    sampling time =       4.41 ms
+0.02.815.449 I common_perf_print:    samplers time =       1.62 ms /    35 tokens
+0.02.815.452 I common_perf_print:        load time =     136.57 ms
+0.02.815.453 I common_perf_print: prompt eval time =     135.46 ms /    27 tokens (    5.02 ms per token,   199.32 tokens per second)
+0.02.815.454 I common_perf_print:        eval time =     237.29 ms /     7 runs   (   33.90 ms per token,    29.50 tokens per second)
+0.02.815.454 I common_perf_print:       total time =     378.38 ms /    34 tokens
+0.02.815.455 I common_perf_print: unaccounted time =       1.22 ms /   0.3 %      (total - sampling - prompt eval - eval) / (total)
+0.02.815.455 I common_perf_print:    graphs reused =          6
+
+END_VRAM_MB: 1280
+RETURN_CODE: 0
+TIMED_OUT: False

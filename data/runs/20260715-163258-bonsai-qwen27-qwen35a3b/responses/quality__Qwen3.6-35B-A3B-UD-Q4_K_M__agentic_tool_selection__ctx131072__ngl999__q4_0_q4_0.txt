@@ -1,0 +1,14 @@
+
+
+<think>
+
+</think>
+
+{
+  "tool": "read_file",
+  "arguments": {
+    "path": "/tmp/demo.py"
+  }
+} [end of text]
+
+

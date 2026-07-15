@@ -1,0 +1,14 @@
+
+
+<think>
+Here's a thinking process:
+
+1.  **Analyze User Input:**
+   - **Role:** Hermes
+   - **Context:** Previous attempt failed because `terminal` tried to open `/tmp/missing-file.txt` and got `ENOENT` (Error NO ENTry - file not found).
+   - **Task:** Recover by choosing the next best tool. May inspect filesystem first if helpful.
+   - **Output Format:** Only the next tool call in compact JSON with keys `tool` and `arguments`. No explanations.
+
+2.  **Identify Key Constraints:**
+   - Must output
+

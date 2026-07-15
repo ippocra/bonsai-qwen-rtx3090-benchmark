@@ -1,0 +1,63 @@
+{
+  "backend": "/home/fido/work/PrismML-llama.cpp/build/bin/llama-completion",
+  "hardware": "RTX 3090 24GB",
+  "output_dir": "data/runs/20260715-163258-bonsai-qwen27-qwen35a3b",
+  "models": [
+    {
+      "name": "Ternary-Bonsai-27B-Q2_0",
+      "path": "/home/fido/models/ternary-bonsai-27b/Ternary-Bonsai-27B-Q2_0.gguf"
+    },
+    {
+      "name": "Qwen3.6-27B-Q4_K_M",
+      "path": "/home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf"
+    },
+    {
+      "name": "Qwen3.6-35B-A3B-UD-Q4_K_M",
+      "path": "/home/fido/models/qwen3.6-35b-a3b-gguf/Qwen3.6-35B-A3B-UD-Q4_K_M.gguf"
+    }
+  ],
+  "fit_contexts": [
+    32768,
+    65536,
+    131072,
+    196608,
+    252000,
+    262144
+  ],
+  "gpu_layers": [
+    20,
+    28,
+    36,
+    44,
+    60,
+    999
+  ],
+  "quality_contexts": [
+    131072,
+    252000
+  ],
+  "fit_cache_types": [
+    [
+      "q4_0",
+      "q4_0"
+    ]
+  ],
+  "boundary_cache_types": [
+    [
+      "q8_0",
+      "q8_0"
+    ],
+    [
+      "f16",
+      "f16"
+    ]
+  ],
+  "threads": 12,
+  "batch_size": 512,
+  "ubatch_size": 128,
+  "timeout_seconds": {
+    "fit": 180,
+    "boundary": 240,
+    "quality": 300
+  }
+}

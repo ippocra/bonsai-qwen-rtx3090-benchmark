@@ -1,0 +1,9 @@
+
+
+<think>
+
+</think>
+
+{"tool":"session_search","arguments":{"query":"router stop order decision"}} [end of text]
+
+

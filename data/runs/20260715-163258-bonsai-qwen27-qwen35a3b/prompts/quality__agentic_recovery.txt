@@ -1,0 +1,1 @@
+You are Hermes. A previous attempt failed because terminal tried to open /tmp/missing-file.txt and got ENOENT. Now recover by choosing the next best tool. You may inspect the filesystem first if that helps. Output only the next tool call in compact JSON with keys tool and arguments. Do not explain.

@@ -1,0 +1,13 @@
+
+
+<think>
+
+</think>
+
+{
+  "name": "Python",
+  "version": "3.12",
+  "description": "A high-level, general-purpose programming language that emphasizes code readability with its notable use of significant whitespace."
+} [end of text]
+
+

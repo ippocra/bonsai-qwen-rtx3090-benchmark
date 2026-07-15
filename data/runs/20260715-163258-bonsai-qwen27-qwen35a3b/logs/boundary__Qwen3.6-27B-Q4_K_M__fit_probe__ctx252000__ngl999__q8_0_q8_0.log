@@ -1,0 +1,15 @@
+COMMAND: /home/fido/work/PrismML-llama.cpp/build/bin/llama-completion -m /home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf -c 252000 -n 1 -ngl 999 -fit off -fa on --perf --simple-io --skip-chat-parsing --reasoning off -no-cnv --no-display-prompt --no-warmup -ctk q8_0 -ctv q8_0 -b 512 -ub 128 -t 12 --temp 0 --top-p 1 --seed 42 -f data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/prompts/boundary__fit_probe.txt
+START_VRAM_MB: 1280
+0.00.019.369 I llama_completion: llama backend init
+0.00.019.376 I llama_completion: load the model and apply lora adapter, if any
+0.02.204.237 W llama_context: n_ctx_seq (252160) < n_ctx_train (262144) -- the full capacity of the model will not be utilized
+0.02.208.950 E ggml_backend_cuda_buffer_type_alloc_buffer: allocating 8372.50 MiB on device 0: cudaMalloc failed: out of memory
+0.02.208.953 E alloc_tensor_range: failed to allocate CUDA0 buffer of size 8779202560
+0.02.209.514 E llama_init_from_model: failed to initialize the context: failed to allocate buffer for kv cache
+0.02.209.520 E common_init_result: failed to create context with model '/home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf'
+0.02.209.522 E common_init_from_params: failed to create context with model '/home/fido/models/qwen3.6-27b/Qwen3.6-27B-Q4_K_M.gguf'
+0.02.209.524 E llama_completion: error: unable to create context
+
+END_VRAM_MB: 1280
+RETURN_CODE: 1
+TIMED_OUT: False
