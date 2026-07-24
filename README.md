@@ -56,3 +56,10 @@ python3 scripts/generate_infographics.py --results data/latest/results.tsv --out
 - Python packages for infographic generation: `matplotlib`, `Pillow`
 
 The benchmark runner itself uses only the Python standard library.
+
+## Day to Day use -- doom loops
+
+_Editorial note by Michele_
+
+I've tested this on day to day and, while I can confirm the speed and RAM usage, I've seen getting stuck into many doom loops. I've used via hermes on our instance of [ilai](https://ilai.ippocra.com) for few days, then I've switched back to my workhorse that is the Qwen 3.6 35-A3B. 
+I did not have more time or more machine to dedicate to a more wider test.
