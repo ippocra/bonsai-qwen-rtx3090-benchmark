@@ -16,6 +16,10 @@ Latest three-model timestamped run: `data/runs/20260715-163258-bonsai-qwen27-qwe
 
 Previous two-model snapshot remains available in `data/latest/`.
 
+**You can find the infographics in `assets/`**
+
+
+
 ## Repository layout
 
 ```text
