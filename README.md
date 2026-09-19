@@ -1,12 +1,22 @@
 # Bonsai vs Qwen RTX 3090 Benchmark
 
-Standalone benchmark harness and result package for comparing Ternary Bonsai 27B and Qwen3.6 27B on a single RTX 3090 24GB GPU with llama.cpp.
+Standalone benchmark harness and result package for comparing PrismML Ternary Bonsai (gen 1 and Bonsai 2) against Qwen 27B baselines on a single RTX 3090 24GB GPU with llama.cpp.
 
 The benchmark answers one practical question: how much model, context, and KV precision can be squeezed out of the hardware before OOM, and what throughput/quality tradeoff results?
 
-## Latest conclusion
+## Bonsai 2 27B vs Qwen3.8-27B (2026-09-18)
 
-Latest three-model timestamped run: `data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/results.tsv`.
+Latest two-model run: `data/runs/20260918-bonsai2-27b-vs-qwen38-27b/results.tsv`. Bonsai 2 PTQ1_0 (5.95 GB, PrismML fork rebuilt sm_86; stock llama.cpp segfaulted) vs the current router model Qwen3.8-27B UD-Q4_K_S (15.36 GB).
+
+- Bonsai 2 fits full offload at 262144 context with q4_0 KV at about 11620 MB peak VRAM; Qwen3.8 Q4 needs 18872 MB.
+- Decode at 131K quality probes: Bonsai 2 median 60.8 tok/s vs 44.2; prompt processing favors Qwen (455.9 vs 190.0 tok/s).
+- KV boundary: Bonsai 2 keeps q8_0 and f16 KV through 262K (15714/22270 MB peak); Qwen3.8 Q4 keeps q8_0 but OOMs f16 above 131K.
+- Quality probes: Bonsai 2 scored 3/7 (failed coding + tool/session selection) at both 131K and 252K; Qwen3.8 scored 7/7 — a material local gap vs the vendor's 98.2% retention claim.
+- Verdict: viable fast long-context supplement for a single RTX 3090, not a drop-in quality replacement for the router. See `data/runs/20260918-bonsai2-27b-vs-qwen38-27b/SUMMARY.md`.
+
+## Bonsai 27B gen 1 (July 2026)
+
+First three-model timestamped run: `data/runs/20260715-163258-bonsai-qwen27-qwen35a3b/results.tsv`.
 
 - Bonsai 27B fits full GPU offload at 262144 context with q4_0/q4_0 KV using about 12801 MB peak VRAM and 34.14 tok/s on the fit probe.
 - Qwen3.6 27B fits full GPU offload at 262144 context with q4_0/q4_0 KV, but uses about 22755 MB peak VRAM and 29.01 tok/s.
