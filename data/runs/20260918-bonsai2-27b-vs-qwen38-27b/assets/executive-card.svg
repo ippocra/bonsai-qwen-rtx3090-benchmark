@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="800" viewBox="0 0 1400 800">
+<rect width="1400" height="800" fill="#101820"/>
+<rect x="48" y="44" width="1304" height="712" rx="24" fill="#172733" stroke="#4dd0e1" stroke-width="2"/>
+<text x="90" y="110" fill="#f6c85f" font-family="DejaVu Sans" font-size="38" font-weight="bold">BONSAI 2 27B / RTX 3090</text>
+<text x="90" y="150" fill="#b9d7df" font-family="DejaVu Sans" font-size="21">PTQ1_0 ternary vs current Qwen3.8 Q4 router baseline | 2026-09-18</text>
+<line x1="90" y1="185" x2="1310" y2="185" stroke="#365563"/>
+<text x="100" y="240" fill="#ffffff" font-family="DejaVu Sans" font-size="24" font-weight="bold">131K fixed probes</text>
+<text x="100" y="300" fill="#4dd0e1" font-family="DejaVu Sans" font-size="54" font-weight="bold">60.8 tok/s</text>
+<text x="100" y="335" fill="#b9d7df" font-family="DejaVu Sans" font-size="19">Bonsai median decode</text>
+<text x="100" y="405" fill="#f6c85f" font-family="DejaVu Sans" font-size="54" font-weight="bold">44.2 tok/s</text>
+<text x="100" y="440" fill="#b9d7df" font-family="DejaVu Sans" font-size="19">Qwen3.8 Q4 median decode</text>
+<text x="100" y="520" fill="#ffffff" font-family="DejaVu Sans" font-size="24" font-weight="bold">Quality: 3/7 vs 7/7</text>
+<text x="100" y="558" fill="#b9d7df" font-family="DejaVu Sans" font-size="18">reasoning / coding / JSON / Hermes agentic probes</text>
+<text x="760" y="240" fill="#ffffff" font-family="DejaVu Sans" font-size="24" font-weight="bold">Memory and context</text>
+<text x="760" y="300" fill="#4dd0e1" font-family="DejaVu Sans" font-size="48" font-weight="bold">5.95 GB</text>
+<text x="760" y="335" fill="#b9d7df" font-family="DejaVu Sans" font-size="19">Bonsai weights</text>
+<text x="760" y="405" fill="#f6c85f" font-family="DejaVu Sans" font-size="48" font-weight="bold">15.36 GB</text>
+<text x="760" y="440" fill="#b9d7df" font-family="DejaVu Sans" font-size="19">Qwen3.8 Q4 weights</text>
+<text x="760" y="520" fill="#ffffff" font-family="DejaVu Sans" font-size="27" font-weight="bold">262,144 ctx tested</text>
+<text x="760" y="558" fill="#b9d7df" font-family="DejaVu Sans" font-size="18">Bonsai q8/f16 KV both fit at 262K</text>
+<rect x="100" y="625" width="1180" height="78" rx="12" fill="#203b46"/>
+<text x="130" y="673" fill="#ffffff" font-family="DejaVu Sans" font-size="23">Verdict: viable fast long-context supplement; not a quality replacement yet.</text>
+<text x="90" y="735" fill="#7896a0" font-family="DejaVu Sans" font-size="15">PrismML llama.cpp origin/prism 1a07bfa5f | q4_0 KV | full offload | -fit off</text>
+</svg>
